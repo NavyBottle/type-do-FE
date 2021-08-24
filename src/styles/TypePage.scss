@@ -1,0 +1,129 @@
+.typepage-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.typepage-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  width: 28%;
+  padding-top: 10%;
+}
+
+.typepage-title-and {
+  font-size: 4em;
+  font-weight: bolder;
+}
+.typepage-title-type {
+  font-size: 4em;
+  font-weight: bolder;
+
+  color: #20c997;
+}
+.typepage-title-do {
+  font-size: 4em;
+  font-weight: bolder;
+  &:hover {
+    color: #20c997;
+  }
+}
+
+.typepage-input {
+  font-size: 1.1em;
+  font-family: "Noto Sans CJK KR";
+  font-weight: 200%;
+  background-color: rgb(238, 238, 238);
+  border: none;
+  border-radius: 7px;
+
+  width: 43%;
+  height: 2em;
+  padding-left: 2%;
+  margin-top: 5%;
+}
+
+.typepage-log-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 43%;
+  margin-top: 3%;
+}
+
+.typepage-log-button {
+  color: gray;
+  &:active {
+    color: white;
+  }
+}
+
+.typepage-log-list {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 3px;
+  background-color: rgb(238, 238, 238);
+
+  width: 90%;
+  height: 350px;
+}
+
+.typepage-log-title {
+  margin-top: 1%;
+}
+.typepage-log-title-time {
+  font-family: "Noto Sans CJK KR";
+  font-weight: bold;
+  margin-left: 7.5%;
+}
+.typepage-log-title-todo {
+  font-family: "Noto Sans CJK KR";
+  font-weight: bold;
+  margin-left: 33%;
+}
+.typepage-log-title-priority {
+  font-family: "Noto Sans CJK KR";
+  font-weight: bold;
+  margin-left: 33%;
+}
+.typepage-log-bar {
+  height: 1px;
+  width: 95%;
+  border: none;
+  background-color: gray;
+}
+
+.typepage-typelog {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.05em;
+  margin-bottom: 3%;
+}
+.typepage-typelog-time {
+  background-color: white;
+  border-radius: 3.5px;
+  margin-left: 1%;
+  padding: 3px 5px 3px 5px;
+}
+.typepage-typelog-todo {
+  background-color: white;
+  border-radius: 3.5px;
+  margin-right: 10%;
+  padding: 3px 5px 3px 5px;
+}
+.typepage-typelog-priority {
+  background-color: white;
+  border-radius: 3.5px;
+  margin-right: 9%;
+  padding: 3px 5px 3px 5px;
+}
