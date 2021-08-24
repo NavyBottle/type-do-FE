@@ -1,7 +1,9 @@
 import React from "react";
 
+import TypePage from "./pages/TypePage";
+
 function App() {
-  return <div>Hi</div>;
+  return <TypePage />;
 }
 
 export default App;
