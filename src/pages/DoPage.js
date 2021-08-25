@@ -11,14 +11,12 @@ const DoPage = () => {
       start: "2021-08-28T15:00",
       end: "2021-08-28T16:00",
       title: "Infoteam",
-      priority: 1,
     },
     {
       id: 2,
       start: "2021-08-30T01:00",
       end: "2021-08-31T01:00",
       title: "WING_AI",
-      priority: 2,
     },
   ]);
 
