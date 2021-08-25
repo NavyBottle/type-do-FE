@@ -1,0 +1,30 @@
+.dopage-title-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  width: 28%;
+}
+
+.dopage-title-and {
+  font-size: 4em;
+  font-weight: bolder;
+}
+.dopage-title-type {
+  font-size: 4em;
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    transition: 0.3s;
+    color: #20c997;
+  }
+}
+
+.dopage-title-do {
+  font-size: 4em;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #20c997;
+}

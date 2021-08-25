@@ -1,6 +1,7 @@
 import { React, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames";
-import Title from "../components/Title";
+
 import Input from "../components/Input";
 // import Button from "../components/Button";
 
@@ -16,13 +17,13 @@ const TypePage = () => {
   const [logs, setLogs] = useState([
     {
       id: 0,
-      time: "8/12 , 12:00 AM",
+      time: "8/12 , 12:00",
       todo: "GIST_Infoteam 개발시작하기",
       priority: 1,
     },
     {
       id: 1,
-      time: "8/14 , 16:00 AM",
+      time: "8/14 , 16:00",
       todo: "WING_AI 개발시작하기",
       priority: 2,
     },
@@ -68,8 +69,12 @@ const TypePage = () => {
         todo: "",
         priority: "",
       });
-      setLogbutton(true);
       setLogs(logs.concat(log));
+      setLogbutton(true);
+      setTimelength(0);
+      setTodolength(0);
+      setPrioritylength(0);
+
       console.log(timeLength, todoLength, priorityLength);
     }
   };
@@ -107,7 +112,16 @@ const TypePage = () => {
 
   return (
     <div className="typepage-wrapper">
-      <Title />
+      <div className="typepage-title-wrapper">
+        <Link className="typepage-title-type" to="/type">
+          Type
+        </Link>
+        <div className="typepage-title-and"> & </div>
+        <Link className="typepage-title-do" to="/do">
+          Do
+        </Link>
+      </div>
+
       <Input
         time={time}
         todo={todo}

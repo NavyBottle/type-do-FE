@@ -24,13 +24,16 @@
 .typepage-title-type {
   font-size: 4em;
   font-weight: bolder;
-
+  text-decoration: none;
   color: #20c997;
 }
 .typepage-title-do {
   font-size: 4em;
   font-weight: bolder;
+  text-decoration: none;
+  color: black;
   &:hover {
+    transition: 0.3s;
     color: #20c997;
   }
 }
@@ -59,10 +62,9 @@
 .typepage-log-wrapper {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
 
-  width: 43%;
+  width: 100%;
   margin-top: 3%;
 }
 
@@ -71,6 +73,7 @@
 }
 .typepage-log-button-true {
   color: #20c997;
+  margin-right: 3%;
 }
 
 .typepage-log-list {
@@ -80,13 +83,17 @@
   border-radius: 3px;
   background-color: rgb(238, 238, 238);
 
-  width: 90%;
+  width: 38%;
   height: 350px;
 
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .typepage-log-title {
+  display: flex;
+  justify-content: space-between;
+
   margin-top: 1%;
 }
 .typepage-log-title-time {
@@ -97,12 +104,12 @@
 .typepage-log-title-todo {
   font-family: "Noto Sans CJK KR";
   font-weight: bold;
-  margin-left: 33%;
+  margin-left: 1%;
 }
 .typepage-log-title-priority {
   font-family: "Noto Sans CJK KR";
   font-weight: bold;
-  margin-left: 32%;
+  margin-right: 10%;
 }
 .typepage-log-bar {
   height: 1px;
@@ -116,23 +123,32 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 1.05em;
+  font-weight: 400;
   margin-bottom: 3%;
+
+  &:hover {
+    color: #20c997;
+  }
 }
 .typepage-typelog-time {
   background-color: white;
   border-radius: 3.5px;
-  margin-left: 2%;
+  margin-left: 4.3%;
   padding: 3px 5px 3px 5px;
 }
 .typepage-typelog-todo {
   background-color: white;
   border-radius: 3.5px;
-  margin-right: 10%;
+  margin-right: 6.8%;
   padding: 3px 5px 3px 5px;
 }
 .typepage-typelog-priority {
   background-color: white;
   border-radius: 3.5px;
-  margin-right: 9%;
+  margin-right: 14%;
   padding: 3px 5px 3px 5px;
+}
+.typepage-typelog-delete {
+  color: rgb(187, 187, 187);
+  margin-right: 10%;
 }
