@@ -25,7 +25,7 @@ const TypePage = () => {
       <input className="typepage-input" />
 
       <div className="typepage-log-wrapper">
-        <FaListUl className="typepage-log-button" />
+        <FaListUl className="typepage-log-button" size="20px" />
         <div className="typepage-log-list">
           <div className="typepage-log-title">
             <span className="typepage-log-title-time">Time</span>
