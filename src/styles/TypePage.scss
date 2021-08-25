@@ -59,11 +59,11 @@
   margin-top: 3%;
 }
 
-.typepage-log-button {
+.typepage-log-button-false {
   color: gray;
-  &:active {
-    color: white;
-  }
+}
+.typepage-log-button-true {
+  color: #20c997;
 }
 
 .typepage-log-list {

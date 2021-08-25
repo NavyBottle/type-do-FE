@@ -1,4 +1,5 @@
-import { React } from "react";
+import { React, useState } from "react";
+import classNames from "classnames";
 
 import { FaListUl } from "react-icons/fa";
 import "../styles/TypePage.scss";
@@ -14,6 +15,8 @@ const TypeLog = () => {
 };
 
 const TypePage = () => {
+  const [logButton, setLogbutton] = useState(true);
+
   return (
     <div className="typepage-wrapper">
       <div className="typepage-title-wrapper">
@@ -25,17 +28,26 @@ const TypePage = () => {
       <input className="typepage-input" />
 
       <div className="typepage-log-wrapper">
-        <FaListUl className="typepage-log-button" size="20px" />
-        <div className="typepage-log-list">
-          <div className="typepage-log-title">
-            <span className="typepage-log-title-time">Time</span>
-            <span className="typepage-log-title-todo">Todo</span>
-            <span className="typepage-log-title-priority">Priority</span>
+        <FaListUl
+          className={classNames(
+            { "typepage-log-button-false": !logButton },
+            { "typepage-log-button-true": logButton }
+          )}
+          onClick={() => setLogbutton(!logButton)}
+          size="20px"
+        />
+        {logButton && (
+          <div className="typepage-log-list">
+            <div className="typepage-log-title">
+              <span className="typepage-log-title-time">Time</span>
+              <span className="typepage-log-title-todo">Todo</span>
+              <span className="typepage-log-title-priority">Priority</span>
+            </div>
+            <hr className="typepage-log-bar" />
+            <TypeLog />
+            <TypeLog />
           </div>
-          <hr className="typepage-log-bar" />
-          <TypeLog />
-          <TypeLog />
-        </div>
+        )}
       </div>
     </div>
   );
