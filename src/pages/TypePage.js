@@ -10,32 +10,32 @@ import "../styles/TypePage.scss";
 
 const TypePage = () => {
   const [logButton, setLogbutton] = useState(false);
-  const [timeLength, setTimelength] = useState(0);
-  const [todoLength, setTodolength] = useState(0);
+  const [startLength, setStartlength] = useState(0);
+  const [titleLength, setTitlelength] = useState(0);
   const [priorityLength, setPrioritylength] = useState(0);
 
   const [logs, setLogs] = useState([
     {
-      id: 0,
-      time: "8/12 , 12:00",
-      todo: "GIST_Infoteam 개발시작하기",
+      id: 1,
+      start: "2021-09-16",
+      title: "GIST_Infoteam 개발시작하기",
       priority: 1,
     },
     {
-      id: 1,
-      time: "8/14 , 16:00",
-      todo: "WING_AI 개발시작하기",
+      id: 2,
+      start: "2021-09-21",
+      title: "WING_AI 개발시작하기",
       priority: 2,
     },
   ]);
-  const nextId = useRef(1);
+  const nextId = useRef(2);
 
   const [inputs, setInputs] = useState({
-    time: "",
-    todo: "",
+    start: "",
+    title: "",
     priority: "",
   });
-  const { time, todo, priority } = inputs;
+  const { start, title, priority } = inputs;
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -43,39 +43,39 @@ const TypePage = () => {
       ...inputs,
       [name]: value,
     });
-    if (e.target.name === "time") {
-      setTimelength(e.target.value.length);
-    } else if (e.target.name === "todo") {
-      setTodolength(e.target.value.length);
+    if (e.target.name === "start") {
+      setStartlength(e.target.value.length);
+    } else if (e.target.name === "title") {
+      setTitlelength(e.target.value.length);
     } else if (e.target.name === "priority") {
       setPrioritylength(e.target.value.length);
     }
   };
 
   const onCreate = () => {
-    if (timeLength === 0 || todoLength === 0 || priorityLength === 0) {
+    if (startLength === 0 || titleLength === 0 || priorityLength === 0) {
       alert("Need to Type Something");
     } else {
       nextId.current += 1;
       const log = {
         id: nextId.current,
-        time,
-        todo,
+        start,
+        title,
         priority,
       };
       setInputs({
         ...inputs,
-        time: "",
-        todo: "",
+        start: "",
+        title: "",
         priority: "",
       });
       setLogs(logs.concat(log));
       setLogbutton(true);
-      setTimelength(0);
-      setTodolength(0);
+      setStartlength(0);
+      setTitlelength(0);
       setPrioritylength(0);
 
-      console.log(timeLength, todoLength, priorityLength);
+      console.log(startLength, titleLength, priorityLength);
     }
   };
 
@@ -95,36 +95,40 @@ const TypePage = () => {
   };
 
   const Log = ({ index }) => {
-    return (
-      <div className="typepage-typelog">
-        <div className="typepage-typelog-time">
-          {logs[nextId.current - index].time}
+    if (nextId.current === 0) {
+      return;
+    } else {
+      return (
+        <div className="typepage-typelog">
+          <div className="typepage-typelog-start">
+            {logs[nextId.current - 1 - index].start}
+          </div>
+          <div className="typepage-typelog-title">
+            {logs[nextId.current - 1 - index].title}
+          </div>
+          <div className="typepage-typelog-priority">
+            {logs[nextId.current - 1 - index].priority}
+          </div>
         </div>
-        <div className="typepage-typelog-todo">
-          {logs[nextId.current - index].todo}
-        </div>
-        <div className="typepage-typelog-priority">
-          {logs[nextId.current - index].priority}
-        </div>
-      </div>
-    );
+      );
+    }
   };
 
   return (
     <div className="typepage-wrapper">
-      <div className="typepage-title-wrapper">
-        <Link className="typepage-title-type" to="/type">
+      <div className="typepage-logo-wrapper">
+        <Link className="typepage-logo-type" to="/type">
           Type
         </Link>
-        <div className="typepage-title-and"> & </div>
-        <Link className="typepage-title-do" to="/do">
+        <div className="typepage-logo-and"> & </div>
+        <Link className="typepage-logo-do" to="/do">
           Do
         </Link>
       </div>
 
       <Input
-        time={time}
-        todo={todo}
+        start={start}
+        title={title}
         priority={priority}
         onChange={onChange}
         onCreate={onCreate}
@@ -136,8 +140,8 @@ const TypePage = () => {
         {logButton && (
           <div className="typepage-log-list">
             <div className="typepage-log-title">
-              <span className="typepage-log-title-time">Time</span>
-              <span className="typepage-log-title-todo">Todo</span>
+              <span className="typepage-log-title-start">Time</span>
+              <span className="typepage-log-title-title">Todo</span>
               <span className="typepage-log-title-priority">Priority</span>
             </div>
             <hr className="typepage-log-bar" />
