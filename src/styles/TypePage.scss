@@ -35,6 +35,12 @@
   }
 }
 
+.typepage-input-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  width: 50%;
+}
 .typepage-input {
   font-size: 1.1em;
   font-family: "Noto Sans CJK KR";
@@ -43,10 +49,11 @@
   border: none;
   border-radius: 7px;
 
-  width: 43%;
+  width: 100%;
   height: 2em;
   padding-left: 2%;
   margin-top: 5%;
+  margin-left: 1%;
 }
 
 .typepage-log-wrapper {
@@ -75,6 +82,8 @@
 
   width: 90%;
   height: 350px;
+
+  overflow-y: scroll;
 }
 
 .typepage-log-title {
@@ -83,7 +92,7 @@
 .typepage-log-title-time {
   font-family: "Noto Sans CJK KR";
   font-weight: bold;
-  margin-left: 7.5%;
+  margin-left: 8%;
 }
 .typepage-log-title-todo {
   font-family: "Noto Sans CJK KR";
@@ -93,7 +102,7 @@
 .typepage-log-title-priority {
   font-family: "Noto Sans CJK KR";
   font-weight: bold;
-  margin-left: 33%;
+  margin-left: 32%;
 }
 .typepage-log-bar {
   height: 1px;
@@ -112,7 +121,7 @@
 .typepage-typelog-time {
   background-color: white;
   border-radius: 3.5px;
-  margin-left: 1%;
+  margin-left: 2%;
   padding: 3px 5px 3px 5px;
 }
 .typepage-typelog-todo {
