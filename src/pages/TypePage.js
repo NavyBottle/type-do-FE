@@ -16,13 +16,13 @@ const TypePage = () => {
 
   const [logs, setLogs] = useState([
     {
-      id: 1,
+      log_id: 1,
       start: "2021-09-16",
       title: "GIST_Infoteam 개발시작하기",
       priority: 1,
     },
     {
-      id: 2,
+      log_id: 2,
       start: "2021-09-21",
       title: "WING_AI 개발시작하기",
       priority: 2,
@@ -58,7 +58,7 @@ const TypePage = () => {
     } else {
       nextId.current += 1;
       const log = {
-        id: nextId.current,
+        log_id: nextId.current,
         start,
         title,
         priority,
@@ -147,7 +147,7 @@ const TypePage = () => {
             <hr className="typepage-log-bar" />
 
             {logs.map((log, index) => (
-              <Log logs={log} index={index} />
+              <Log logs={log} index={index} key={index} />
             ))}
           </div>
         )}
