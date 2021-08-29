@@ -1,0 +1,39 @@
+.dopage-wrapper {
+  width: 100%;
+  height: auto;
+}
+
+.dopage-logo-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  margin: 1% 0 0 2%;
+  font-size: 3em;
+}
+.dopage-logo-and {
+  font-weight: bolder;
+  margin: 0 1.5%;
+}
+.dopage-logo-type {
+  font-weight: bolder;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    transition: 0.3s;
+    color: #20c997;
+  }
+}
+.dopage-logo-do {
+  font-weight: bolder;
+  text-decoration: none;
+  color: #20c997;
+}
+
+.dopage-calender-wrapper {
+  margin-top: 1%;
+  margin-left: 20%;
+
+  width: 50%;
+  height: 20%;
+}
