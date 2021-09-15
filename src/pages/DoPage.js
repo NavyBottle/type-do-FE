@@ -1,25 +1,17 @@
 import { React, useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
-import Calender from "../components/Calender";
 import "../styles/DoPage.scss";
 
-const url = "http://127.0.0.1:8000/logs/";
-
 const DoPage = () => {
-  const [logs, setLogs] = useState(null);
-
   useEffect(() => {
-    // 처음 렌더링 때 DB에서 GET
-    axios
-      .get(url)
-      .then((res) => {
-        setLogs(res.data);
-        console.log("GET Done");
-      })
-      .catch((error) => console.log(error));
+    // 처음 렌더링
+    console.log("DoPage start");
   }, []);
+
+  const TodoTable = () => {
+    return <div></div>;
+  };
 
   return (
     <div className="dopage-wrapper">
@@ -32,8 +24,8 @@ const DoPage = () => {
           Do
         </Link>
       </div>
-      <div className="dopage-calender-wrapper">
-        <Calender className="dopage-calender" events={logs} />
+      <div className="dopage-table-wrapper">
+        <TodoTable />
       </div>
     </div>
   );

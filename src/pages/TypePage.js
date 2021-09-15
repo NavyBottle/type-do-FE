@@ -1,5 +1,4 @@
 import { React, useState, useRef, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
@@ -8,8 +7,6 @@ import Input from "../components/Input";
 
 import { FaListUl } from "react-icons/fa";
 import "../styles/TypePage.scss";
-
-const url = "http://127.0.0.1:8000/logs/";
 
 const TypePage = () => {
   const [logButton, setLogbutton] = useState(true);
@@ -22,14 +19,14 @@ const TypePage = () => {
 
   useEffect(() => {
     // 처음 렌더링 때 DB에서 GET
-    axios
-      .get(url)
-      .then((res) => {
-        setLogs(res.data);
-        nextId.current = res.data.length;
-        console.log("GET Done");
-      })
-      .catch((error) => console.log(error));
+    setLogs([
+      {
+        log_id: 1,
+        start: "2021-04-05",
+        title: "Something todo",
+        priority: 1,
+      },
+    ]);
   }, []);
 
   const [inputs, setInputs] = useState({
@@ -74,11 +71,6 @@ const TypePage = () => {
         priority: "",
       });
       setLogs(logs.concat(log));
-      // DB에 POST
-      axios
-        .post(url, log)
-        .then((res) => console.log("POST done"))
-        .catch((error) => console.log(error));
 
       // 입력창 글자수 초기화
       setStartlength(0);
@@ -91,27 +83,6 @@ const TypePage = () => {
 
   const onRemove = (log_id) => {
     setLogs(logs.filter((log) => log.log_id !== log_id));
-    // DB에 DELETE
-    axios
-      .delete(url + String(log_id))
-      .then((res) => console.log("DELETE done"))
-      .catch((error) => console.log(error));
-
-    // 상위 log의 log_id 조정
-    if (log_id !== nextId.current) {
-      for (let num = log_id + 1; num <= nextId.current; num++) {
-        axios
-          .put(url + String(num), {
-            log_id: num - 1,
-            start: logs[num - 1].start,
-            title: logs[num - 1].title,
-            priority: logs[num - 1].priority,
-          })
-          .then()
-          .catch((error) => console.log(error));
-      }
-      console.log("POST log_id edit done");
-    }
     nextId.current -= 1;
   };
 
@@ -125,13 +96,7 @@ const TypePage = () => {
         onClick={() => {
           console.log("nextId is " + String(nextId.current));
           console.log(logs);
-          axios
-            .get(url)
-            .then((res) => {
-              setLogs(res.data);
-            })
-            .catch((error) => console.log(error))
-            .then(setLogbutton(!logButton));
+          setLogbutton(!logButton);
         }}
         size="20px"
       />
@@ -192,5 +157,4 @@ const TypePage = () => {
     </div>
   );
 };
-
 export default TypePage;
