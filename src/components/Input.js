@@ -13,7 +13,6 @@ const Input = ({ time, title, priority, onChange, onCreate }) => {
     <div className="typepage-input-wrapper">
       <input
         className="typepage-input"
-        placeholder="ex) 2021-08-16"
         name="time"
         onChange={onChange}
         value={time}
@@ -28,7 +27,6 @@ const Input = ({ time, title, priority, onChange, onCreate }) => {
       />
       <input
         className="typepage-input"
-        placeholder="type 1 ~ 5"
         name="priority"
         onChange={onChange}
         value={priority}

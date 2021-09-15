@@ -15,7 +15,7 @@ const TypePage = () => {
   const [priorityLength, setPrioritylength] = useState(0);
 
   const [logs, setLogs] = useState([]);
-  const nextId = useRef(null);
+  const nextId = useRef(1);
 
   useEffect(() => {
     // 처음 렌더링 때 DB에서 GET
@@ -25,6 +25,7 @@ const TypePage = () => {
         time: "2021-04-05",
         title: "Something todo",
         priority: 1,
+        type: "todo",
       },
     ]);
   }, []);
@@ -62,6 +63,7 @@ const TypePage = () => {
         time,
         title,
         priority,
+        type: "todo",
       };
       // 입력창 다시 초기화
       setInputs({
