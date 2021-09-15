@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import "../styles/DoPage.scss";
@@ -9,8 +9,24 @@ const DoPage = () => {
     console.log("DoPage start");
   }, []);
 
-  const TodoTable = () => {
-    return <div></div>;
+  const TableBox = ({ header }) => {
+    return (
+      <div className="dopage-tablebox">
+        <div className="dopage-tablebox-title">{header}</div>
+        <hr className="dopage-tablebox-bar" />
+        <div className="dopage-tablebox-list"></div>
+      </div>
+    );
+  };
+  const Table = () => {
+    return (
+      <div className="dopage-table-wrapper">
+        <TableBox header="Todo" />
+        <TableBox header="In Progress" />
+        <TableBox header="D-3" />
+        <TableBox header="Done" />
+      </div>
+    );
   };
 
   return (
@@ -24,9 +40,8 @@ const DoPage = () => {
           Do
         </Link>
       </div>
-      <div className="dopage-table-wrapper">
-        <TodoTable />
-      </div>
+
+      <Table />
     </div>
   );
 };

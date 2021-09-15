@@ -2,7 +2,7 @@ import { React } from "react";
 
 import "../styles/TypePage.scss";
 
-const Input = ({ start, title, priority, onChange, onCreate }) => {
+const Input = ({ time, title, priority, onChange, onCreate }) => {
   const onKeyPress = (e) => {
     if (e.key === "Enter") {
       onCreate();
@@ -14,9 +14,9 @@ const Input = ({ start, title, priority, onChange, onCreate }) => {
       <input
         className="typepage-input"
         placeholder="ex) 2021-08-16"
-        name="start"
+        name="time"
         onChange={onChange}
-        value={start}
+        value={time}
         onKeyPress={onKeyPress}
       />
       <input

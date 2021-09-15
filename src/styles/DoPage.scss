@@ -1,11 +1,16 @@
 .dopage-wrapper {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dopage-logo-wrapper {
   display: flex;
   flex-direction: row;
+  align-self: flex-start;
 
   margin: 1% 0 0 2%;
   font-size: 3em;
@@ -28,4 +33,45 @@
   font-weight: bolder;
   text-decoration: none;
   color: #20c997;
+}
+
+.dopage-table-wrapper {
+  width: 80%;
+  height: 70%;
+
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 5%;
+  border: 2px solid rgb(192, 192, 192);
+}
+
+.dopage-tablebox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  flex-grow: 1;
+  // background-color: rgb(238, 238, 238);
+  border: 0.2px solid rgb(192, 192, 192);
+}
+.dopage-tablebox-title {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Noto Sans CJK KR";
+  font-weight: 500;
+  background-color: rgb(238, 238, 238);
+  width: 100%;
+}
+.dopage-tablebox-bar {
+  width: 100%;
+  margin: 0;
+}
+.dopage-tablebox-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 25;
 }
