@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { AddTodo, DeleteTodo } from "../modules/todo";
 import { AddInprogress, DeleteInprogress } from "../modules/inprogress";
 import { AddDone, DeleteDone } from "../modules/done";
-
 import Table from "../components/Table";
 
 const TableContainer = () => {
@@ -13,7 +12,6 @@ const TableContainer = () => {
     inprogress: state.inprogress,
     done: state.done,
   }));
-
   const dispatch = useDispatch();
 
   const addTodo = (log) =>

@@ -27,7 +27,7 @@ const initialState = [
     log_id: 4,
     time: "2021-08-12",
     title: "Now starting",
-    priority: 1,
+    priority: "1",
     category: "inprogress",
   },
 ];

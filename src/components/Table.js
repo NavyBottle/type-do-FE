@@ -22,15 +22,15 @@ const Table = ({
           className={classNames(
             {
               "dopage-tablebox-item-wrapper-1":
-                log.priority === 1 ? true : false,
+                log.priority === "1" ? true : false,
             },
             {
               "dopage-tablebox-item-wrapper-2":
-                log.priority === 2 ? true : false,
+                log.priority === "2" ? true : false,
             },
             {
               "dopage-tablebox-item-wrapper-3":
-                log.priority === 3 ? true : false,
+                log.priority === "3" ? true : false,
             }
           )}
         >
@@ -98,12 +98,12 @@ const Table = ({
           <TableItem log={log} key={log.log_id} category="inprogress" />
         ))}
       </TableBox>
-      <TableBox header="D-3" />
       <TableBox header="Done">
         {done.map((log) => (
           <TableItem log={log} key={log.log_id} category="done" />
         ))}
       </TableBox>
+      <TableBox header="D-3" />
     </div>
   );
 };
