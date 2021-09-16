@@ -28,6 +28,9 @@ const Input = ({ time, title, priority, onChange, onCreate }) => {
       <input
         className="typepage-input"
         name="priority"
+        type="number"
+        min="1"
+        max="3"
         onChange={onChange}
         value={priority}
         onKeyPress={onKeyPress}

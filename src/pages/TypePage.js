@@ -1,4 +1,4 @@
-import { React, useState, useRef, useEffect } from "react";
+import { React, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 
@@ -8,27 +8,13 @@ import Input from "../components/Input";
 import { FaListUl } from "react-icons/fa";
 import "../styles/TypePage.scss";
 
-const TypePage = () => {
+const TypePage = ({ logs, addTodo, removeTodo }) => {
   const [logButton, setLogbutton] = useState(true);
   const [timeLength, setTimelength] = useState(0);
   const [titleLength, setTitlelength] = useState(0);
   const [priorityLength, setPrioritylength] = useState(0);
 
-  const [logs, setLogs] = useState([]);
-  const nextId = useRef(1);
-
-  useEffect(() => {
-    // 처음 렌더링 때 DB에서 GET
-    setLogs([
-      {
-        log_id: 1,
-        time: "2021-04-05",
-        title: "Something todo",
-        priority: 1,
-        type: "todo",
-      },
-    ]);
-  }, []);
+  const nextId = useRef(5);
 
   const [inputs, setInputs] = useState({
     time: "",
@@ -56,14 +42,14 @@ const TypePage = () => {
     // 입력창 중에 하나가 빈칸이라면 onCreate 안 함
     if (timeLength === 0 || titleLength === 0 || priorityLength === 0) {
       alert("Need to Type Something");
-    } else {
+    } else if (priority === "1" || priority === "2" || priority === "3") {
       nextId.current += 1;
       const log = {
         log_id: nextId.current,
         time,
         title,
         priority,
-        type: "todo",
+        category: "todo",
       };
       // 입력창 다시 초기화
       setInputs({
@@ -72,20 +58,17 @@ const TypePage = () => {
         title: "",
         priority: "",
       });
-      setLogs(logs.concat(log));
-
+      addTodo(log);
+      console.log(log);
       // 입력창 글자수 초기화
       setTimelength(0);
       setTitlelength(0);
       setPrioritylength(0);
       // onCreate 후에 로그창 보여줌
       setLogbutton(true);
+    } else {
+      alert("Priority must be 1, 2, or 3");
     }
-  };
-
-  const onRemove = (log_id) => {
-    setLogs(logs.filter((log) => log.log_id !== log_id));
-    nextId.current -= 1;
   };
 
   const LogListbutton = () => {
@@ -116,7 +99,7 @@ const TypePage = () => {
         <hr className="typepage-log-bar" />
         <div className="typepage-log-reverse">
           {logs.map((log) => (
-            <Log log={log} key={log.log_id} onClick={onRemove} />
+            <Log log={log} key={log.log_id} />
           ))}
         </div>
       </div>
@@ -126,7 +109,7 @@ const TypePage = () => {
   const Log = ({ log }) => {
     // useEffect(() => console.log(index), []);
     return (
-      <div className="typepage-typelog" onClick={() => onRemove(log.log_id)}>
+      <div className="typepage-typelog" onClick={() => removeTodo(log.log_id)}>
         <div className="typepage-typelog-time">{log.time}</div>
         <div className="typepage-typelog-title">{log.title}</div>
         <div className="typepage-typelog-priority">{log.priority}</div>
