@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { combineReducers, createStore } from "redux";
 import { Provider } from "react-redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import todo from "./modules/todo";
 import inprogress from "./modules/inprogress";
@@ -16,7 +17,7 @@ const rootReducer = combineReducers({
   inprogress,
   done,
 });
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, composeWithDevTools());
 
 function App() {
   return (
