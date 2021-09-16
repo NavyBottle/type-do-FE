@@ -27,7 +27,7 @@ const initialState = [
     log_id: 5,
     time: "2021-06-08",
     title: "Just Finished",
-    priority: 2,
+    priority: "2",
     category: "done",
   },
 ];
