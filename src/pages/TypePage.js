@@ -9,7 +9,7 @@ import { FaListUl } from "react-icons/fa";
 import "../styles/TypePage.scss";
 
 const TypePage = ({ logs, addTodo, removeTodo }) => {
-  const [logButton, setLogbutton] = useState(true);
+  const [logButton, setLogbutton] = useState(false);
   const [timeLength, setTimelength] = useState(0);
   const [titleLength, setTitlelength] = useState(0);
   const [priorityLength, setPrioritylength] = useState(0);
@@ -59,7 +59,6 @@ const TypePage = ({ logs, addTodo, removeTodo }) => {
         priority: "",
       });
       addTodo(log);
-      console.log(log);
       // 입력창 글자수 초기화
       setTimelength(0);
       setTitlelength(0);
@@ -79,8 +78,6 @@ const TypePage = ({ logs, addTodo, removeTodo }) => {
           { "typepage-log-button-true": logButton }
         )}
         onClick={() => {
-          console.log("nextId is " + String(nextId.current));
-          console.log(logs);
           setLogbutton(!logButton);
         }}
         size="20px"
