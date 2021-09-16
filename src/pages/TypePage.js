@@ -107,7 +107,6 @@ const TypePage = ({ logs, addTodo, removeTodo }) => {
   };
 
   const Log = ({ log }) => {
-    // useEffect(() => console.log(index), []);
     return (
       <div className="typepage-typelog" onClick={() => removeTodo(log.log_id)}>
         <div className="typepage-typelog-time">{log.time}</div>
